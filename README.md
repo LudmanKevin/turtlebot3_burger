@@ -3,6 +3,9 @@
 ### Működés leírása
 Turtlebot3 építése ros2 környezetben, valamint akadály kikerülő vezérlés létrehozása lidar segítségével.
 
+### Felhasznált csomagok
+Turtlebot3: 
+
 ### Clone the packages
 ``` r
 cd ~/ros2_ws/src
