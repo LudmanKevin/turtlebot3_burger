@@ -59,6 +59,9 @@ turtlebot3_burger mappa: Ebben a mappában két általunk készített csomag tal
 
 
 ### Csomagok klónozása
+
+Ha feltételezzük, hogy a munkahelyünk a ros2_ws, akkor lépjünk be a /ros2_ws/src-be, és klónozzuk a csomagokat.
+
 ``` r
 cd ~/ros2_ws/src
 ```
@@ -84,6 +87,9 @@ git clone https://github.com/LudmanKevin/turtlebot3_burger.git
 ```
 
 ### Csomagok lefordítása
+
+Ha megvagyunk a klónozásokkal, lépjünk vissza a ros2_ws-be, és folytassuk ezen parancsokkal.
+
 ``` r
 cd ~/ros2_ws/ 
 ```
