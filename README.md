@@ -3,6 +3,44 @@
 ### Működés leírása
 Turtlebot3 építése ros2 környezetben, valamint akadály kikerülő vezérlés létrehozása lidar segítségével.
 
+### Működést szemléltető gráf
+flowchart LR
+
+    %% LiDAR
+    hlds_laser_publisher(["/hlds_laser_publisher"])
+    scan["/scan"]
+
+    %% Obstacle detector
+    obstacle_detector[("/obstacle_detector")]
+    cmd_vel["/cmd_vel"]
+
+    %% Turtlebot node
+    turtlebot3_node[("/turtlebot3_node")]
+    imu["/imu"]
+    joint_states["/joint_states"]
+
+    %% Diff drive, odom
+    diff_drive["/diff_drive_controller"]
+    odom["/odom"]
+
+    %% EKF localization
+    ekf["/ekf_filter_node"]
+    odom_filtered["/odometry/filtered"]
+
+    %% TF
+    robot_state_publisher["/robot_state_publisher"]
+    tf["/tf"]
+    transform_listener["/transform_listener_impl"]
+
+    %% Connections
+    hlds_laser_publisher --> scan --> obstacle_detector --> cmd_vel --> turtlebot3_node
+    turtlebot3_node --> joint_states --> robot_state_publisher --> tf
+    turtlebot3_node --> imu --> ekf
+    diff_drive --> odom --> ekf --> odom_filtered --> obstacle_detector
+    turtlebot3_node --> diff_drive
+    ekf --> tf
+    transform_listener --> tf
+
 ### Felhasznált csomagok
 Turtlebot3: 
 
