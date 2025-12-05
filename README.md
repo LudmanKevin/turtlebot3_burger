@@ -44,6 +44,10 @@ graph LR
     transform_listener --> tf
 ```
 
+### Működést szemléltető videó
+
+[![Robot demo video](https://img.youtube.com/vi/eSl_OqyTuD4/0.jpg)](https://www.youtube.com/watch?v=eSl_OqyTuD4)
+
 ### Felhasznált csomagok
 Turtlebot3: Ez a csomag a robot "szíve". Ahhoz, hogy a robot egyátalán mozogni tudjon a bringup-nak futnia kell. Emellett a program készítése során fontos eszközök voltak még a csomagban (pl.: example, teleop).
 
