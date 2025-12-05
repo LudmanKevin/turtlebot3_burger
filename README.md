@@ -52,6 +52,16 @@ graph LR
 
 ![Robot kép](images/turtlebot3_terminal.png)
 
+Y tengely elmentett pontja: Elinduláskor a robot felvesz egy pontot az Y tengelyen (jellemzően 0.00 vagy -0.00), majd e vonal mentén megy előre.
+
+Y tengely elmentett pontjától való távolság: Elemtett Y pontra merőlegesen állított vonaltól mért távolság.
+
+Elfordulás mértéke: Kiinduló irányhoz képesi elfordulás.
+
+Akadály: Milyen messze van a legközelebbi akadály.
+
+Szög: Merre található a legközelebbi akadály.
+
 ### Felhasznált csomagok
 Turtlebot3: Ez a csomag a robot "szíve". Ahhoz, hogy a robot egyátalán mozogni tudjon a bringup-nak futnia kell. Emellett a program készítése során fontos eszközök voltak még a csomagban (pl.: example, teleop).
 
