@@ -5,6 +5,7 @@ Turtlebot3 építése ros2 környezetben, valamint akadály kikerülő vezérlé
 
 ### Működést szemléltető gráf
 
+```mermaid
 graph LR
 
     %% LiDAR
@@ -41,6 +42,7 @@ graph LR
     turtlebot3_node --> diff_drive
     ekf --> tf
     transform_listener --> tf
+```
 
 ### Felhasznált csomagok
 Turtlebot3: 
