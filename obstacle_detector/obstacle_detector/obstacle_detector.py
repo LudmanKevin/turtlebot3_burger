@@ -99,14 +99,13 @@ class ObstacleAvoidanceNode(Node):
             self.target_yaw = self.current_yaw
 
         # Itt iratjuk ki a terminálba a fontosabb értékeket
-        self.get_logger().warn("----------Fontosabb értékek----------")
+        self.get_logger().info("\033[33m----------Fontosabb értékek----------\033[0m")
         self.get_logger().info(f'Y tengely elmentett pontja: {self.start_y:.2f}')
         self.érték = abs(self.start_y - self.current_y)
         self.get_logger().info(f'Y tengely elmentett pontjától való távolság: {self.érték:.2f}')
         self.delta_yaw = self.normalize_angle(self.target_yaw - self.current_yaw)
-        self.get_logger().warn(f'Elfordulás mértéke: {self.delta_yaw:.2f}rad')
-        self.get_logger().warn("----------Akadály észlelés----------")
-        self.get_logger().info(" ")
+        self.get_logger().info(f'Elfordulás mértéke: {self.delta_yaw:.2f}rad')
+        self.get_logger().info("\033[33m----------Akadály észlelés----------\033[0m")
 
         # Itt számolom ki a sebességeket ahhoz képest hogy milyen messze vagyunk az akadálytól
         self.x_sebeseg = (0.05*(local_min / 0.2))/2
@@ -148,7 +147,8 @@ class ObstacleAvoidanceNode(Node):
             elif abs(math.pi - (self.delta_yaw)) > abs(-math.pi - (self.delta_yaw)):
                 cmd.twist.angular.z = -0.3
 
-        self.get_logger().warn(f'Akadály: {local_min:.2f} m | Szög: {local_angle:.2f}°')
+        self.get_logger().info(f'Akadály: {local_min:.2f} m | Szög: {local_angle:.2f}°')
+        self.get_logger().info(" ")
         self.cmd_vel_pub.publish(cmd)
 
 def main(args=None):
