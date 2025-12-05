@@ -45,14 +45,21 @@ graph LR
 ```
 
 ### Felhasznált csomagok
-Turtlebot3: 
+Turtlebot3: Ez a csomag a robot "szíve". Ahhoz, hogy a robot egyátalán mozogni tudjon a bringup-nak futnia kell. Emellett a program készítése során fontos eszközök voltak még a csomagban (pl.: example, teleop).
 
-### Clone the packages
+hls_lfcd_lds_driver: Ez a lidar driver-je. Ennek a segítségével pörög a lidar, és gyűjti az adatokat, ami elengedhetetlen a tájékozódáshoz.
+
+lidar_cluster_ros2: Kiegészítő a lidarhoz. Az egymáshoz közel lévő pontokat egy akadályként definiálja, így megkönnyíti annak kikerülését.
+
+turtlebot3_burger mappa: Ebben a mappában két általunk készített csomag található: obstacle_detector és tb3_localization. Előbbi a haladáshoz és akadálykerüléshez kell, utóbbi pedig létrehoz egy /odometry/filtered topic-ot, ami lényegében /imu segítségével javítja /odom értékeit, és a robotunk ezt a topic-ot használja a navigációhoz.
+
+
+### Csomagok klónozása
 ``` r
 cd ~/ros2_ws/src
 ```
 
-Turtlebot3 alap csomag:
+Turtlebot3:
 ``` r
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 ```
@@ -67,17 +74,17 @@ lidar_cluster_ros2:
 git clone https://github.com/jkk-research/lidar_cluster_ros2.git
 ```
 
-Obstacle_detector csomag:
+turtlebot3_burger mappa:
 ``` r
 git clone https://github.com/LudmanKevin/turtlebot3_burger.git
 ```
 
-### Build ROS 2 packages
+### Csomagok lefordítása
 ``` r
 cd ~/ros2_ws/ 
 ```
 ``` r
-colcon build --packages-select turtlebot3 hls_lfcd_lds_driver lidar_cluster_ros2 obstacle_detector
+colcon build
 ```
 ``` r
 source install/setup.bash
