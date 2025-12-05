@@ -99,12 +99,13 @@ class ObstacleAvoidanceNode(Node):
             self.target_yaw = self.current_yaw
 
         # Itt iratjuk ki a terminálba a fontosabb értékeket
-        self.get_logger().info(f'elmentett y: {self.start_y:.2f}')
-        self.delta_yaw = self.normalize_angle(self.target_yaw - self.current_yaw)
-        self.get_logger().warn(f'delta_yaw: {self.delta_yaw:.2f}rad')
+        self.get_logger().info("---------Fontosabb értékek---------")
+        self.get_logger().info(f'Y tengely elmentett pontja: {self.start_y:.2f}')
         self.érték = abs(self.start_y - self.current_y)
-        self.get_logger().info(f'y érték: {self.érték:.2f}')
-        self.get_logger().info("----------------------------------")
+        self.get_logger().info(f'Y tengely elmentett pontjától való távolság: {self.érték:.2f}')
+        self.delta_yaw = self.normalize_angle(self.target_yaw - self.current_yaw)
+        self.get_logger().warn(f'Elfordulás mértéke: {self.delta_yaw:.2f}rad')
+        self.get_logger().info("-----------------------------------")
 
         # Itt számolom ki a sebességeket ahhoz képest hogy milyen messze vagyunk az akadálytól
         self.x_sebeseg = (0.05*(local_min / 0.2))/2
