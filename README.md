@@ -5,7 +5,7 @@ Turtlebot3 építése ros2 környezetben, valamint akadály kikerülő vezérlé
 
 ### Működést szemléltető gráf
 
-flowchart LR
+graph LR
 
     %% LiDAR
     hlds_laser_publisher(["/hlds_laser_publisher"])
