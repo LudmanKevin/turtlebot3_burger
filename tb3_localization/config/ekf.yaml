@@ -1,0 +1,35 @@
+ekf_filter_node:
+  ros__parameters:
+
+    frequency: 50.0
+
+    # IMU + enkóder driftmentesített odometria
+    two_d_mode: true
+    publish_tf: true
+
+    map_frame: "map"
+    odom_frame: "odom"
+    base_link_frame: "base_link"
+    world_frame: "odom"
+
+    # Enkóder odometria (TB3 /odom topic)
+    odom0: "/odom"
+    odom0_config: [true, true, false,
+                   false, false, true,
+                   false, false, false,
+                   false, false, false,
+                   false, false, false]
+
+    # IMU (yaw stabilizálás)
+    imu0: "/imu"
+    imu0_config: [false, false, false,
+                  false, false, true,
+                  true,  true,  true,
+                  false, false, false,
+                  false, false, false]
+
+    imu0_differential: false
+    imu0_remove_gravity: true
+
+    # Ha a TB3 IMU zajos, ez stabilizál:
+    sensor_timeout: 0.1
