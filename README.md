@@ -1,7 +1,7 @@
 # turtlebot3_burger
 
 ### Működés leírása
-Turtlebot3 építése ros2 környezetben, valamint akadály kikerülő vezérlés létrehozása lidar segítségével.
+Turtlebot3 építése ros2 környezetben, valamint akadály kikerülő vezérlés létrehozása lidar segítségével. Bringup-ot elindítjuk, így a robot képes lesz mozogni. Lidarral gyűjtjük az adatokat /odom topic-ba. tb3_localization csomag a /imu topic segítségével javítja /odom-ot, és ezt /odometry/filtered topic-ként hirdeti. Obstacle_detector node feliratkozik rá és így képes lesz "látni" a körülötte lévő területet. Ha mindez megtörtént a robot elindul előre, egy Y tengely mentén kijelölt pontra merőlegesen állított egyenesen, és ha akadályt észlel, akkor azt kikerüli.
 
 ### Működést szemléltető gráf
 
@@ -46,11 +46,11 @@ graph LR
 
 ### Működést szemléltető videó
 
-[![Robot demo video](https://img.youtube.com/vi/eSl_OqyTuD4/0.jpg)](https://www.youtube.com/watch?v=eSl_OqyTuD4)
+[![Robot videó](https://img.youtube.com/vi/eSl_OqyTuD4/0.jpg)](https://www.youtube.com/watch?v=eSl_OqyTuD4)
 
 ### Terminál
 
-![Robot kép](images/turtlebot3_terminal.png)
+![Terminál kép](images/turtlebot3_terminal.png)
 
 Y tengely elmentett pontja: Elinduláskor a robot felvesz egy pontot az Y tengelyen (jellemzően 0.00 vagy -0.00), majd e vonal mentén megy előre.
 
